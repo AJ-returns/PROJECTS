@@ -14,11 +14,11 @@
   <body>
 
   <?php
-        require 'partials/_header.php';
-        
+        include 'partials/_header.php';
+        include 'partials/_dbconnect.php';
    
-
-        
+ 
+ //for unsplash API         or use lorem picsum       
         // Your Unsplash Access Key
         $accessKey = 'DN8_omCyTOJf25QUA-4iJHXbzdrB7Yx36oOyupuzrRs';
         
@@ -45,7 +45,7 @@
           $imageUrl = 'https://contentstatic.techgig.com/thumb/msid-107923788,width-800,resizemode-4/Python-programming-Must-have-tools-for-ML-and-Data-Science.jpg?9098'; // Fallback image URL
         }
         ?>  
-      <!-- carousel -->
+      <!-- SLider starts here -->
       <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -72,78 +72,33 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <h1 class="text-center my-4">iDiscuss- Categories</h1>
-      <!-- use a for loop to iterate categories -->
-    <div class="container">
-      <div class="row">
-       <div class="col-md-3 my-2">
+      <!-- category container starts here -->
+     <h1 class="text-center my-4">iDiscuss- Categories</h1>
+      <!-- fetch all categories and use a for loop to iterate categories -->
+  <div class="container">
+   <div class="row">
+    <?php
+       $sql="SELECT * FROM `categories` ";
+       $result=mysqli_query($conn,$sql);
+       while ($row=mysqli_fetch_assoc($result)) {
+        // echo $row['category_id'];
+        echo 
+      "
+       <div class='col-md-3 my-2'>
           <div class='card' style='width: 18rem;'>
             <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
             <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class='card-title'>".$row['category_name']."</h5>
+                <p class='card-text'>".substr($row['category_description'],0,85)."....</p>
                 <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
+            </div>
           </div>
-       </div>
-       <div class="col-md-3 my-2">
-          <div class='card' style='width: 18rem;'>
-            <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
-            <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
-          </div>
-       </div><div class="col-md-3 my-2">
-          <div class='card' style='width: 18rem;'>
-            <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
-            <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
-          </div>
-       </div><div class="col-md-3 my-2">
-          <div class='card' style='width: 18rem;'>
-            <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
-            <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
-          </div>
-       </div><div class="col-md-3 my-2">
-          <div class='card' style='width: 18rem;'>
-            <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
-            <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
-          </div>
-       </div><div class="col-md-3 my-2">
-          <div class='card' style='width: 18rem;'>
-            <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
-            <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
-          </div>
-       </div><div class="col-md-3 my-2">
-          <div class='card' style='width: 18rem;'>
-            <img src='<?php echo htmlspecialchars($imageUrl); ?>' alt='Random Image' height='250' width='287'>
-            <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>View Threads</a>
-              </div>
-          </div>
-       </div>
-       </div>
-      </div>
-    </div>
+       </div>";
+       }
+    ?>
+   </div>
+  </div>
+    
     <?php
         require 'partials/_footer.php';
     ?>
