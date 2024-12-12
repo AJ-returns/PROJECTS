@@ -1,3 +1,8 @@
+<?php
+        session_start();
+        require 'partials/_header.php';    
+        include 'partials/_venuemodal.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -23,10 +28,7 @@
 
 <body style="padding-top:50px">
 
-    <?php
-        require 'partials/_header.php';    
-        include 'partials/_venuemodal.php';
-    ?>
+  
     <?php
        if ($showalert) {
         echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>

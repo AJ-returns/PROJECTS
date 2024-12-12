@@ -17,7 +17,6 @@
           while($row=mysqli_fetch_assoc($result)) {
                 if (password_verify($password,$row['Password'])) {
                     $login=true;
-                    session_start();
                     $_SESSION['loggedin']=true;
                     $_SESSION['l_username']=$username;
                     // header("location:about.php");

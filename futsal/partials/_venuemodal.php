@@ -1,7 +1,5 @@
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button> -->
+<?php
+?>
 
 <!-- Modal -->
 <div class="modal fade" id="venue1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -65,7 +63,7 @@
                   }
                   else{
                    echo "<div class='row'>
-                    <form action='index.php' method='post'>
+                    <form action='/Projects/futsal/index.php' method='post'>
                         <div class='col-md-4 position-relative'>
                             <label for='first_name' class='form-label'>First name</label>
                             <input type='text' class='form-control' id='first_name' name='first_name' required>

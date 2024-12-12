@@ -8,7 +8,7 @@ echo '<nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/Projects/futsal">Home</a>
@@ -30,32 +30,29 @@ echo '<nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top">
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact Us</a>
+          <a class="nav-link" href="contact.php" style="white-space:nowrap">Contact Us</a>
         </li>
-      </ul>';
-      if (!$login) {
-       
-     echo '<button class="btn btn-outline-info " data-bs-toggle="modal" data-bs-target="#loginmodal">Login</button> 
-      <button class="btn btn-outline-info mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal">Signup</button>
-      </div>
-  </div>
-</nav>';}
-    else {
-      echo '<button class="btn btn-outline-info mx-2" data-bs-toggle="modal" data-bs-target="#logoutmodal">Logout</button>
-                <!-- 
-                    primary-blue
-                    secondary-blackish
-                    danger-red
-                    warning-orangish yellow
-                    success-green
-                    info-aqua
-                    light-grey
-                    dark-black
-                -->
+        </ul>';
+      if (!$_SESSION['loggedin']) {  
+     echo '<button class="btn btn-outline-info " data-bs-toggle="modal" data-bs-target="#loginmodal">Login</button>
+      <button class="btn btn-outline-info mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal">Signup</button>';}
+    else if($_SESSION['loggedin']) {
+      echo '<button class="btn btn-outline-info mx-2" data-bs-toggle="modal" data-bs-target="#logoutmodal">Logout</button>';}
+              
+                    // primary-blue
+                    // secondary-blackish
+                    // danger-red
+                    // warning-orangish yellow
+                    // success-green
+                    // info-aqua
+                    // light-grey
+                    // dark-black
+          
       
-    </div>
+
+      echo '</div>
   </div>
 </nav>';
  
-      }
+      
 ?>
