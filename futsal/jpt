@@ -1,25 +1,3 @@
-<div class="row">
-                    <form action="index.php" method="post">
-                        <div class="col-md-4 position-relative">
-                            <label for="first_name" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" required>
-                        </div>
-                        <div class="col-md-4 position-relative">
-                            <label for="last_name" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" required>
-                        </div>
-                        <div class="col-md-6 position-relative">
-                            <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control" id="city" name="city" required>
-                        </div>
+for futsal:
 
-                        <div class="mb-3">
-                            <label for="datetime" class="form-label">Date and time</label>
-                            <input type="datetime-local" class="form-control" id="datetime" name="datetime" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-info col-md-12" type="submit">Reserve now!</button>
-                            <button type="button" class="btn btn-dark col-md-12" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </form>
-                </div>
+CREATE TABLE `futsal420`.`users` (`S.N` INT(11) NOT NULL AUTO_INCREMENT , `Username` VARCHAR(30) NOT NULL , `Password` VARCHAR(255) NOT NULL , `Date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`S.N`)) ENGINE = InnoDB;
