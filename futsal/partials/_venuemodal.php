@@ -10,14 +10,15 @@
         $date=$_POST['date'];
         $tslot=$_POST['tslot'];
         $venue="1";
-        $sql="INSERT INTO `reservation123` (`Fname`, `Lname`, `E-mail`, `Contact`, `Date`, `TSlot`, `Venue`) VALUES ('$fname', '$lname', '$mail', '$contact', '$date', '$tslot', '$venue')";
-        $result_R=mysqli_query($conn,$sql);
-        if($result_R){
-            $bookalert=true;
-        }
-        else{
-            $bookerror="Booking Failed! PLease tryn again";
-        }
+        echo var_dump($_POST);
+        // $sql="INSERT INTO `reservation123` (`Fname`, `Lname`, `E-mail`, `Contact`, `Date`, `TSlot`, `Venue`) VALUES ('$fname', '$lname', '$mail', '$contact', '$date', '$tslot', '$venue')";
+        // $result_R=mysqli_query($conn,$sql);
+        // if($result_R){
+        //     $bookalert=true;
+        // }
+        // else{
+        //     $bookerror="Booking Failed! PLease try again";
+        // }
 
     }
 ?>
@@ -85,8 +86,8 @@
                   else{
                    echo "<div class='row'>
                     <form action='/Projects/futsal/index.php' method='post'>
-                         <!-- Personal Info -->
-
+                       
+                        <!-- Personal Info -->
                          <div class='col-md-4 position-relative'>
                          <label for='first_name' class='form-label'>First name</label>
                          <input type='text' class='form-control' id='first_name' name='f_name' required>
@@ -99,12 +100,12 @@
                          <label for='exampleFormControlInput1' class='form-label'>Email address</label>
                          <input type='email' class='form-control' name='email' id='email' placeholder='name@example.com' required>
                          </div>
+                         <div class='col-md-6 position-relative'>
+                         <label for='contact' class='form-label'>Contact no:</label>
+                         <input type='number' maxlength='10' class='form-control' id='contact' name='contact' required>
+                         </div>
+                         
                          <!-- Reservation Details -->
-                        <div class='col-md-6 position-relative'>
-                            <label for='contact' class='form-label'>Contact no:</label>
-                            <input type='number' class='form-control' id='contact' name='contact' required>
-                        </div>
-
                         <div class='col-md-4 position-relative'>
                             <label for='date' class='form-label'>Date and time</label>
                             <input type='date' class='form-control' id='date' name='date' required>
