@@ -20,9 +20,16 @@
     </script>
 
     <!-- for forms  -->
-    <script>
+    <!-- <script>
     // Set the minimum date and time to the current date and time
     document.getElementById('datetime').setAttribute('min', new Date().toISOString().slice(0, 16));
+    </script> -->
+    <script>
+        //get todays date in the format YYYY-MM-DD
+        const today=new Date().toISOString().split('T')[0];
+
+        //set min selectable todays date
+        document.getElementById('date').setAttribute('min',today);
     </script>
 </head>
 
@@ -53,6 +60,20 @@
        if ($showlogerror) {
         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
             <strong>Error! </strong>".$showlogerror."
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+       }
+        ?>
+        <?php
+       if ($bookalert) {
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+            <strong>Viola! </strong> Booking was successful.
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+       }
+       if ($bookerror) {
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+            <strong>Error! </strong>".$bookerror."
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
         </div>";
        }

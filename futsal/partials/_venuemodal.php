@@ -1,10 +1,24 @@
 <?php
-    if($_SERVER['REQUEST_METHOD']=='POST' && isset['l_username']){
-        $fname=$_POST['f_name'];
+        $bookalert=false;
+        $bookerror=false;
+    if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_SESSION['l_username'])) {
+        require 'partials/_dbconnect.php';
+        $fname=$_POST['f_name']; //$_post['yaha chai form ko input wala ko name='...j hunx' tyo varinx, id=... hain']
         $lname=$_POST['l_name'];
         $mail=$_POST['email'];
         $contact=$_POST['contact'];
-        
+        $date=$_POST['date'];
+        $tslot=$_POST['tslot'];
+        $venue="1";
+        $sql="INSERT INTO `reservation123` (`Fname`, `Lname`, `E-mail`, `Contact`, `Date`, `TSlot`, `Venue`) VALUES ('$fname', '$lname', '$mail', '$contact', '$date', '$tslot', '$venue')";
+        $result_R=mysqli_query($conn,$sql);
+        if($result_R){
+            $bookalert=true;
+        }
+        else{
+            $bookerror="Booking Failed! PLease tryn again";
+        }
+
     }
 ?>
 
@@ -75,15 +89,15 @@
 
                          <div class='col-md-4 position-relative'>
                          <label for='first_name' class='form-label'>First name</label>
-                         <input type='text' class='form-control' id='f_name' name='first_name' required>
+                         <input type='text' class='form-control' id='first_name' name='f_name' required>
                          </div>
                          <div class='col-md-4 position-relative'>
                          <label for='last_name' class='form-label'>Last name</label>
-                         <input type='text' class='form-control' id='l_name' name='last_name' required>
+                         <input type='text' class='form-control' id='last_name' name='l_name' required>
                          </div>
                          <div class='col-md-4 position-relative'>
                          <label for='exampleFormControlInput1' class='form-label'>Email address</label>
-                         <input type='email' class='form-control' id='email' placeholder='name@example.com' required>
+                         <input type='email' class='form-control' name='email' id='email' placeholder='name@example.com' required>
                          </div>
                          <!-- Reservation Details -->
                         <div class='col-md-6 position-relative'>
@@ -92,14 +106,18 @@
                         </div>
 
                         <div class='col-md-4 position-relative'>
-                            <label for='datetime' class='form-label'>Date and time</label>
-                            <input type='datetime-local' class='form-control' id='datetime' name='datetime' required>
+                            <label for='date' class='form-label'>Date and time</label>
+                            <input type='date' class='form-control' id='date' name='date' required>
                        
                         <label for='time'>Time Slot:</label>
-                        <select class='form-select' id='time' name='time' required>
-                            <option value='10:00'>10:00 AM</option>
-                            <option value='11:00'>11:00 AM</option>
-                            <option value='12:00'>12:00 PM</option>
+                        <select class='form-select' id='tslot' name='tslot' required>
+                            <option value='1'>09:00 AM - 10:00 AM</option>
+                            <option value='2'>10:00 AM - 11:00 AM</option>
+                            <option value='3'>11:00 AM - 12:00 PM</option>
+
+                            <option value='4'>04:00 PM - 05:00 PM</option>
+                            <option value='5'>05:00 PM - 06:00 PM</option>
+                            <option value='6'>06:00 PM - 07:00 PM</option>
                         </select> </div>
                         <div class='modal-footer'>
                             <button class='btn btn-info col-md-12' type='submit'>Reserve now!</button>
