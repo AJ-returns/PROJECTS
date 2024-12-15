@@ -12,16 +12,16 @@
             <div class="modal-body">
                
                     <div class="mb-3">
-                        <p class="lead">Are you you want to log out?</p>
+                        <p class="lead">Are you sure you want to log out?</p>
                     
                     </div>
                 
             </div>
             <div class="modal-footer d-flex justify-content-between">
                 
-                    <a href="/Projects/futsal/partials/_logout.php"><button type="submit" class="btn btn-info rounded-pill px-4">Yes</button></a>
+                    <a href="/Projects/futsal/partials/_logout.php"><button type="submit" class="btn btn-outline rounded-pill px-4">Yes</button></a>
              
-                <button type="button" class="btn btn-danger  rounded-pill px-4" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-outline rounded-pill px-4" data-bs-dismiss="modal">No</button>
             </div>
         </div>
     </div>

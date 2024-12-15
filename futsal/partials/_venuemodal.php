@@ -1,4 +1,11 @@
 <?php
+    if($_SERVER['REQUEST_METHOD']=='POST' && isset['l_username']){
+        $fname=$_POST['f_name'];
+        $lname=$_POST['l_name'];
+        $mail=$_POST['email'];
+        $contact=$_POST['contact'];
+        
+    }
 ?>
 
 <!-- Modal -->
@@ -64,23 +71,36 @@
                   else{
                    echo "<div class='row'>
                     <form action='/Projects/futsal/index.php' method='post'>
-                        <div class='col-md-4 position-relative'>
-                            <label for='first_name' class='form-label'>First name</label>
-                            <input type='text' class='form-control' id='first_name' name='first_name' required>
-                        </div>
-                        <div class='col-md-4 position-relative'>
-                            <label for='last_name' class='form-label'>Last name</label>
-                            <input type='text' class='form-control' id='last_name' name='last_name' required>
-                        </div>
+                         <!-- Personal Info -->
+
+                         <div class='col-md-4 position-relative'>
+                         <label for='first_name' class='form-label'>First name</label>
+                         <input type='text' class='form-control' id='f_name' name='first_name' required>
+                         </div>
+                         <div class='col-md-4 position-relative'>
+                         <label for='last_name' class='form-label'>Last name</label>
+                         <input type='text' class='form-control' id='l_name' name='last_name' required>
+                         </div>
+                         <div class='col-md-4 position-relative'>
+                         <label for='exampleFormControlInput1' class='form-label'>Email address</label>
+                         <input type='email' class='form-control' id='email' placeholder='name@example.com' required>
+                         </div>
+                         <!-- Reservation Details -->
                         <div class='col-md-6 position-relative'>
-                            <label for='city' class='form-label'>City</label>
-                            <input type='text' class='form-control' id='city' name='city' required>
+                            <label for='contact' class='form-label'>Contact no:</label>
+                            <input type='number' class='form-control' id='contact' name='contact' required>
                         </div>
 
-                        <div class='mb-3'>
+                        <div class='col-md-4 position-relative'>
                             <label for='datetime' class='form-label'>Date and time</label>
                             <input type='datetime-local' class='form-control' id='datetime' name='datetime' required>
-                        </div>
+                       
+                        <label for='time'>Time Slot:</label>
+                        <select class='form-select' id='time' name='time' required>
+                            <option value='10:00'>10:00 AM</option>
+                            <option value='11:00'>11:00 AM</option>
+                            <option value='12:00'>12:00 PM</option>
+                        </select> </div>
                         <div class='modal-footer'>
                             <button class='btn btn-info col-md-12' type='submit'>Reserve now!</button>
                             <button type='button' class='btn btn-dark col-md-12' data-bs-dismiss='modal'>Close</button>
@@ -89,7 +109,7 @@
                 </div>";
                     }
 ?>
-                
+
             </div>
         </div>
     </div>
